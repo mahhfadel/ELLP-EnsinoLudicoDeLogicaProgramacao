@@ -30,10 +30,9 @@ Ferramentas como Supertest para o Node.js permitirão testar endpoints e validar
 O Cypress permite simular o comportamento do usuário e verificar se todas as funcionalidades essenciais estão operando como esperado no ambiente de produção.
 
 ## Tecnologias Utilizadas
-
-Backend: Node.js com Sequelize
-Banco de Dados: PostgreSQL
-Frontend: React
+- Backend: Node.js com Sequelize
+- Banco de Dados: PostgreSQL
+- Frontend: React
 
 Hospedagem
 Render para o backend: A Render é uma plataforma de hospedagem que oferece um ambiente escalável e fácil de gerenciar para aplicações Node.js, com suporte para CI/CD (integração e entrega contínuas) e automação de deploys, permitindo que atualizações de código sejam facilmente integradas ao sistema.

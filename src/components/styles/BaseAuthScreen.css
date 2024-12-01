@@ -1,0 +1,42 @@
+.baseAuthContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.baseAuthLeft, .baseAuthRight{
+    height: 100%;
+    width: 50%;
+
+    position: relative;
+}
+
+.baseAuthLeft{
+    background: linear-gradient(#026CB8, #0D549A);
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.baseAuthLeft .ellpinho{
+    width: auto;
+    height: 80vh;
+
+    position: absolute;
+
+    left: -15vw;
+    bottom: -30vh;
+}
+
+.baseAuthRight {
+    background-color: #FBFBFB;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

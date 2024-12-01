@@ -1,0 +1,125 @@
+.title{
+    font-size: 3rem;
+    color: #026CB8;
+    font-family: 'Baloo Bhai 2', sans-serif;
+
+    margin-bottom: 1rem;
+}
+
+.container{
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 0;
+}
+
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error{
+    font-size: 1.25rem;
+    font-family: 'Beiruti', sans-serif;
+
+    color: #EF5350;
+    font-weight: 500;
+}
+
+.button{
+    padding: 0.5rem;
+    width: 100%;
+
+    background-color: #026CB8;
+    color: #FBFBFB;
+
+    font-family: 'Beiruti', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    border-radius: 8px;
+
+    border: 1px solid #026CB8;
+
+    margin-top: 1.5rem;
+
+    transition: all ease-in-out 0.15s;
+}
+
+.button:hover{
+    cursor: pointer;
+
+    transform: translateY(-2px);
+}
+
+.or{
+    width: 100%;
+
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Beiruti', sans-serif;
+    font-size: 1.5rem;
+
+    color: #026CB8;
+
+    position: relative;
+
+    font-weight: 500;
+}
+
+.or::before, .or::after{
+    content: '';
+
+    width: 35%;
+    height: 2px;
+
+    position: absolute;
+
+    background-color: #026CB8;
+
+}
+
+.or::before{
+    top: 60%;
+    left: 10%;
+}
+
+.or::after{
+    top: 60%;
+    right: 10%;
+}
+
+.create-account{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1rem;
+
+    font-family: 'Beiruti', sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+
+    color: #026CB8;
+}
+
+.create-account a{
+    color: #F79335;
+    text-decoration: underline;
+}
+
+.create-account a:hover{
+    cursor: pointer;
+}

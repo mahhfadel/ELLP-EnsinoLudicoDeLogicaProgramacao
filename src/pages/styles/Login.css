@@ -123,3 +123,9 @@
 .create-account a:hover{
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .container{
+        width: 85%;
+    }
+}

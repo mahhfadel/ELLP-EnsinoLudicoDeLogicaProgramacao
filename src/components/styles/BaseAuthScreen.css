@@ -40,3 +40,25 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    .baseAuthContainer{
+        flex-direction: column;
+    }
+
+    .baseAuthLeft, .baseAuthRight{
+        width: 100%;
+    }
+
+    .baseAuthLeft{
+        height: 12vh;
+    }
+
+    .baseAuthLeft .ellpinho{
+        display: none;
+    }
+
+    .baseAuthLeft .logo{
+        height: 8vh;
+    }
+}

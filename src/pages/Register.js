@@ -65,7 +65,7 @@ function Register() {
     setError(false);
     setErrorMessage('');
   
-    const url = `${process.env.REACT_APP_API_URL}/register`;
+    const url = `${process.env.REACT_APP_API_URL}register`;
     try {
       const response = await axios.post(url, { name, phone, address, birthdate: `${year}-${month}-${day}`, email, password });
   

@@ -26,9 +26,8 @@ function Login() {
     setError(false);
     setErrorMessage('');
   
-    const url = `${process.env.REACT_APP_API_URL}/login`;
+    const url = `${process.env.REACT_APP_API_URL}login`;
     try {
-      console.log(url)
       const response = await axios.post(url, { email, password });
   
       console.log('Dados do usuário:', response.data);

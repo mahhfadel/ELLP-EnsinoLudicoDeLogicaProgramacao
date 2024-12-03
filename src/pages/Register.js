@@ -26,49 +26,62 @@ function Register() {
       setError(true);
       return;
     }
-  
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       setErrorMessage('Por favor, insira um e-mail válido.');
       setError(true);
       return;
     }
-  
+
     if (password !== confirmPassword) {
       setErrorMessage('As senhas não coincidem.');
       setError(true);
       return;
     }
-  
+
     if (password.length < 6) {
       setErrorMessage('A senha deve ter pelo menos 6 caracteres.');
       setError(true);
       return;
     }
-  
+
     const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
     if (!dateRegex.test(birthdate)) {
       setErrorMessage('Data de nascimento inválida. Use o formato DD/MM/AAAA.');
       setError(true);
       return;
     }
-  
+
     const [day, month, year] = birthdate.split('/').map((el) => parseInt(el));
-    const dateObj = new Date(year, month - 1, day);
-  
+
+    // Garantindo que o dia e o mês tenham dois dígitos
+    const formattedDay = day.toString().padStart(2, '0');
+    const formattedMonth = month.toString().padStart(2, '0');
+    const formattedYear = year.toString().padStart(4, '0'); // Garantindo que o ano tenha 4 dígitos
+
+    const dateObj = new Date(formattedYear, formattedMonth - 1, formattedDay);
+
     if (dateObj.getDate() !== day || dateObj.getMonth() !== month - 1 || dateObj.getFullYear() !== year) {
       setErrorMessage('Data de nascimento inválida.');
       setError(true);
       return;
     }
-  
+
     setError(false);
     setErrorMessage('');
-  
+
     const url = `${process.env.REACT_APP_API_URL}register`;
     try {
-      const response = await axios.post(url, { name, phone, address, birthdate: `${year}-${month}-${day}`, email, password });
-  
+      const response = await axios.post(url, { 
+        name, 
+        phone, 
+        address, 
+        birthdate: `${formattedYear}-${formattedMonth}-${formattedDay}`, // Formato YYYY-MM-DD
+        email, 
+        password 
+      });
+
       console.log('Dados do usuário:', response.data);
     } catch (error) {
       if (error.response) {
@@ -80,7 +93,7 @@ function Register() {
       }
       setError(true);
     }
-  };
+};
 
   return (
     <BaseAuthScreen>

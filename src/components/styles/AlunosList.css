@@ -1,0 +1,39 @@
+.bodyAlunosList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contentAlunosList {
+    color: #026cb8;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 16px;
+    gap: 12px;
+}
+
+.AlunosListNome {
+    width: 30%;
+}
+
+.AlunosListEmail {
+    width: 30%;
+}
+
+.AlunosListTelefone {
+    width: 20%;
+}
+
+.AlunosListData {
+    width: 15%;
+}
+
+.dividerAlunosList {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 1px;
+    background-color: #026cb8;
+}

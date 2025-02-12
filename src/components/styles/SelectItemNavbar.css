@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap");
+
+.element {
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: "Baloo Bhai 2", serif;
+    color: #fbfbfb;
+    font-weight: 600;
+    font-size: 22px;
+    cursor: pointer;
+}

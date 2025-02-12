@@ -1,11 +1,11 @@
-.bodyAlunosListOficina {
+.bodyAlunosListCertificado {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.contentAlunosListOficina {
+.contentAlunosListCertificado {
     color: #026cb8;
     display: flex;
     justify-content: space-between;
@@ -14,19 +14,20 @@
     gap: 12px;
 }
 
-.AlunosListOficinaNome {
+.AlunosListCertificadoNome {
     width: 20%;
 }
 
-.AlunosListOficinaEmail {
+.AlunosListCertificadoEmail {
     width: 20%;
 }
 
-.AlunosListOficinaTelefone {
+.AlunosListCertificadoGerar {
     width: 15%;
+    text-decoration: underline;
 }
 
-.AlunosListOficinaIdade {
+.AlunosListCertificadoIdade {
     width: 10%;
 }
 
@@ -69,7 +70,7 @@ input[type="checkbox"]:checked::after {
     display: block;
 }
 
-.dividerAlunosListOficina {
+.dividerAlunosListCertificado {
     margin-top: 8px;
     margin-bottom: 16px;
     width: 100%;

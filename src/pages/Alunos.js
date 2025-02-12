@@ -5,7 +5,7 @@ import AlunosList from "../components/AlunosList";
 import "./styles/Alunos.css";
 //import { Link } from "react-router-dom";
 
-function Home() {
+function Alunos() {
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
@@ -41,4 +41,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Alunos;

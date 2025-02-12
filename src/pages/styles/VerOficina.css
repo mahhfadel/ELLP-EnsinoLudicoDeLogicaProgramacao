@@ -41,8 +41,19 @@ body {
     cursor: pointer;
 }
 
-.alunosViewOficina {
-    margin-top: 20px;
+.dateOficina {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f79335;
+    margin-bottom: 8px;
+}
+
+.descriptionOficina {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.bottonPageAlunos {
     flex-grow: 1;
     width: 100%;
     overflow-y: auto;
@@ -56,7 +67,8 @@ body {
     flex-direction: column;
 }
 
-.topPageAlunos {
+.legendaAlunos {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     color: #026cb8;
@@ -65,20 +77,24 @@ body {
     gap: 12px;
 }
 
-.topPageAlunosNome {
-    width: 30%;
-}
-
-.topPageAlunosEmail {
-    width: 30%;
-}
-
-.topPageAlunosTelefone {
+.legendaAlunosNome {
     width: 20%;
 }
 
-.topPageAlunosData {
+.legendaAlunosEmail {
+    width: 20%;
+}
+
+.legendaAlunosTelefone {
     width: 15%;
+}
+
+.legendaAlunosIdade {
+    width: 10%;
+}
+
+.legendaAlunosConcluido {
+    width: 14%;
 }
 
 .dividerAlunos {

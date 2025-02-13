@@ -3,7 +3,6 @@ import NavBar from "../components/NavBar";
 import CardCertificados from "../components/CardCertificados";
 
 import "./styles/Certificados.css";
-//import { Link } from "react-router-dom";
 
 function Certificados() {
     useEffect(() => {

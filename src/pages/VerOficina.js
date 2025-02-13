@@ -4,7 +4,6 @@ import AlunosList from "../components/AlunosListOficina";
 import Modal from "../components/ModalAdicionarAlunoCurso";
 
 import "./styles/VerOficina.css";
-//import { Link } from "react-router-dom";
 
 function VerOficina() {
     const [isModalOpen, setIsModalOpen] = useState(false);

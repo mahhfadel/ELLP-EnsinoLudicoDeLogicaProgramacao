@@ -4,7 +4,6 @@ import Card from "../components/CardOficinas";
 import Modal from "../components/ModalAdicionarOficina";
 
 import "./styles/Home.css";
-//import { Link } from "react-router-dom";
 
 function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);

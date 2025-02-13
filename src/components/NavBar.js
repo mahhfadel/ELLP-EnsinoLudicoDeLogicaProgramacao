@@ -9,6 +9,8 @@ import logo from "../assets/logo.png";
 import ellpinho from "../assets/ellpinho_v2.png";
 import SelectItemNavbar from "../components/SelectItenNavbar";
 
+import { Link } from "react-router-dom";
+
 import "./styles/NavBar.css";
 
 function NavBar({ oficina, certificado, alunos }) {
@@ -17,23 +19,29 @@ function NavBar({ oficina, certificado, alunos }) {
             <img className="logo" src={logo} />
             <div className="divider"></div>
             <div className="content">
-                <SelectItemNavbar
-                    textElement="Oficinas"
-                    icon={<MdOutlineBook />}
-                    select={oficina}
-                ></SelectItemNavbar>
+                <Link className="link" to="/home">
+                    <SelectItemNavbar
+                        textElement="Oficinas"
+                        icon={<MdOutlineBook />}
+                        select={oficina}
+                    ></SelectItemNavbar>
+                </Link>
 
-                <SelectItemNavbar
-                    textElement="Certificados"
-                    icon={<TbCertificate2 />}
-                    select={certificado}
-                ></SelectItemNavbar>
+                <Link className="link" to="/certificados">
+                    <SelectItemNavbar
+                        textElement="Certificados"
+                        icon={<TbCertificate2 />}
+                        select={certificado}
+                    ></SelectItemNavbar>
+                </Link>
 
-                <SelectItemNavbar
-                    textElement="Alunos"
-                    icon={<MdOutlinePeople />}
-                    select={alunos}
-                ></SelectItemNavbar>
+                <Link className="link" to="/alunos">
+                    <SelectItemNavbar
+                        textElement="Alunos"
+                        icon={<MdOutlinePeople />}
+                        select={alunos}
+                    ></SelectItemNavbar>
+                </Link>
 
                 <SelectItemNavbar
                     textElement="Sair"

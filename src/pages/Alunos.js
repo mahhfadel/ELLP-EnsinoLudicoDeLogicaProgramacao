@@ -4,7 +4,6 @@ import AlunosList from "../components/AlunosList";
 import Modal from "../components/ModalAdicionarAluno";
 
 import "./styles/Alunos.css";
-//import { Link } from "react-router-dom";
 
 function Alunos() {
     const [isModalOpen, setIsModalOpen] = useState(false);

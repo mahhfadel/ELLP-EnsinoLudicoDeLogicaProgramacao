@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap");
+
+html {
+    font-family: "Baloo Bhai 2", serif;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #026cb8;
+}
+
+.modal-close {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #026cb8;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+label {
+    color: #026cb8;
+    font-weight: 600;
+}
+
+.modal-form input,
+.modal-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1.5px solid #026cb8;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #525252;
+    background-color: #eaeaea;
+}
+
+.modal-form textarea {
+    height: 60px;
+    resize: none;
+}
+
+.modal-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #026cb8;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+
+.modal-button:hover {
+    background-color: #026cb8;
+}

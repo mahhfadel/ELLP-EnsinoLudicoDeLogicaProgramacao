@@ -17,7 +17,7 @@ html {
     background: white;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 50%;
     padding: 20px;
 }
 
@@ -77,5 +77,34 @@ label {
 }
 
 .modal-button:hover {
+    background-color: #026cb8;
+}
+
+.topModalAdicionarAlunos {
+    display: flex;
+    justify-content: space-between;
+    color: #026cb8;
+    font-weight: 700;
+    font-size: 16px;
+    gap: 12px;
+}
+
+.topModalAdicionarAlunosNome {
+    width: 35%;
+}
+
+.topModalAdicionarAlunosEmail {
+    width: 35%;
+}
+
+.topModalAdicionarAlunosTelefone {
+    width: 25%;
+}
+
+.dividerAlunos {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 2px;
     background-color: #026cb8;
 }

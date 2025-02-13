@@ -1,18 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import AlunosList from "../components/AlunosListOficina";
+import Modal from "../components/ModalAdicionarAlunoCurso";
 
 import "./styles/VerOficina.css";
 //import { Link } from "react-router-dom";
 
 function VerOficina() {
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, []);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="main">
@@ -20,8 +15,16 @@ function VerOficina() {
             <div className="contentPage">
                 <div className="topPage">
                     <h1>Lorem Ipsum</h1>
-                    <buttom>Adicionar alunos</buttom>
+                    <buttom onClick={() => setIsModalOpen(true)}>
+                        Adicionar alunos
+                    </buttom>
                 </div>
+
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                />
+
                 <p className="dateOficina">05/05/2025</p>
                 <p className="descriptionOficina">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

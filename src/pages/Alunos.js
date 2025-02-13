@@ -1,18 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import AlunosList from "../components/AlunosList";
+import Modal from "../components/ModalAdicionarAluno";
 
 import "./styles/Alunos.css";
 //import { Link } from "react-router-dom";
 
 function Alunos() {
-    useEffect(() => {
-        document.body.style.overflow = "hidden";
-
-        return () => {
-            document.body.style.overflow = "auto";
-        };
-    }, []);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="main">
@@ -20,8 +15,16 @@ function Alunos() {
             <div className="contentPage">
                 <div className="topPage">
                     <h1>Alunos</h1>
-                    <buttom>Adicionar alunos</buttom>
+                    <buttom onClick={() => setIsModalOpen(true)}>
+                        Adicionar alunos
+                    </buttom>
                 </div>
+
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                />
+
                 <div className="bottonPageAlunos">
                     <div className="topPageAlunos">
                         <div className="topPageAlunosNome">Nome</div>

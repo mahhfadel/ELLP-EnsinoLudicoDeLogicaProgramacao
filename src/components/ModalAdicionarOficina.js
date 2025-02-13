@@ -16,11 +16,18 @@ const Modal = ({ isOpen, onClose }) => {
 
                 <form className="modal-form">
                     <label>Nome</label>
-                    <input type="text" placeholder="Insira o nome do curso" />
+                    <input
+                        type="text"
+                        placeholder="Insira o nome do curso"
+                        required
+                    />
                     <label>Descrição</label>
-                    <textarea placeholder="Insira a descrição do curso"></textarea>
+                    <textarea
+                        placeholder="Insira a descrição do curso"
+                        required
+                    />
                     <label>Data</label>
-                    <input type="date" />
+                    <input type="date" required />
                     <button className="modal-button">Criar oficina</button>
                 </form>
             </div>

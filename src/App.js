@@ -7,6 +7,7 @@ import Alunos from "./pages/Alunos";
 import VerOficina from "./pages/VerOficina";
 import VerCertificado from "./pages/VerCertificado";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRoute from "./pages/PrivateRoute";
 
 function App() {
     return (
@@ -14,11 +15,13 @@ function App() {
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/certificados" element={<Certificados />} />
-                <Route path="/alunos" element={<Alunos />} />
-                <Route path="/verOficina" element={<VerOficina />} />
-                <Route path="/verCertificado" element={<VerCertificado />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/certificados" element={<Certificados />} />
+                    <Route path="/alunos" element={<Alunos />} />
+                    <Route path="/verOficina" element={<VerOficina />} />
+                    <Route path="/verCertificado" element={<VerCertificado />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );

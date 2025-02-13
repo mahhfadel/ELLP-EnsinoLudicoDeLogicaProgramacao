@@ -5,16 +5,16 @@ import imagemCapa from "../assets/html5.png";
 
 import { Link } from "react-router-dom";
 
-function CardOficinas() {
+function CardOficinas({ workshop }) {
     return (
-        <Link className="bodyCardOficina" to="/verOficina">
-            <img className="imagemCapa" src={imagemCapa}></img>
+        <Link className="bodyCardOficina" to="/verOficina" state={{ workshop }}>
+            <img className="imagemCapa" src={workshop.imageUri}></img>
             <div className="titleCardOficina">
-                <p className="nameCardOficina"> Lorem Ipsum</p>
-                <p className="dataCardOficina">xx/xx/xxxx</p>
+                <p className="nameCardOficina">{workshop.name}</p>
+                <p className="dataCardOficina">{workshop.date}</p>
             </div>
             <p className="descriptionCardOficina">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                {workshop.description}
             </p>
         </Link>
     );

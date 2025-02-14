@@ -1,23 +1,46 @@
 import React, { useState } from "react";
 import "./styles/AlunosListOficina.css";
+import axios from "axios";
+import { useAuth } from "../context/AuthContext";
 
-function AlunosListOficina({ student }) {
+function AlunosListOficina({ student, workshop }) {
     const [checkboxValue, setCheckboxValue] = useState(student.StudentsWorkshops.isCompleted);
+    const [loading, setLoading] = useState(false);
 
-    // Função para calcular a idade com base na data de nascimento
+    const { token } = useAuth();
+
     const getAge = (birthdate) => {
-        if (!birthdate) return "N/A"; // Retorna "N/A" se não houver data de nascimento
+        if (!birthdate) return "N/A"; 
         const birthDateObj = new Date(birthdate);
         const today = new Date();
         let age = today.getFullYear() - birthDateObj.getFullYear();
         const monthDiff = today.getMonth() - birthDateObj.getMonth();
 
-        // Se ainda não fez aniversário este ano, subtrai 1 da idade
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
             age--;
         }
 
         return age;
+    };
+
+    const handleCheckbox = async () => {
+        if (loading) return;
+        setLoading(true);
+
+        try {
+            await axios.put(
+                `${process.env.REACT_APP_API_URL}workshop/${workshop.id}/students/${student.id}/completed`,
+                {}, 
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+
+            setCheckboxValue(!checkboxValue); 
+        } catch (error) {
+            console.error("Erro ao marcar como concluído:", error);
+            alert("Erro ao atualizar status do aluno. Tente novamente!");
+        } finally {
+            setLoading(false); 
+        }
     };
 
     return (
@@ -33,8 +56,10 @@ function AlunosListOficina({ student }) {
                             type="checkbox"
                             className="checkboxAlunosListOficina"
                             checked={checkboxValue}
-                            onChange={() => setCheckboxValue(!checkboxValue)}
+                            disabled={loading}
+                            onChange={handleCheckbox}
                         />
+                        {loading && <span className="loading-spinner">🔄</span>} {/* Indicador de loading */}
                     </div>
                 </div>
                 <div className="dividerAlunosListOficina"></div>

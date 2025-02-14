@@ -11,7 +11,7 @@ function CardOficinas({ workshop }) {
             <img className="imagemCapa" src={workshop.imageUri}></img>
             <div className="titleCardOficina">
                 <p className="nameCardOficina">{workshop.name}</p>
-                <p className="dataCardOficina">{workshop.date}</p>
+                <p className="dataCardOficina"> {new Date(workshop.date).toLocaleDateString('pt-BR')}</p>
             </div>
             <p className="descriptionCardOficina">
                 {workshop.description}

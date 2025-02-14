@@ -50,9 +50,9 @@ function VerOficina() {
                     </button>
                 </div>
 
-                <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} workshopStudents={alunos} setWorkshopStudents={setAlunos} workshop={workshop}/>
 
-                <p className="dateOficina">{workshop.date}</p>
+                <p className="dateOficina">{new Date(workshop.date).toLocaleDateString('pt-BR')}</p>
                 <p className="descriptionOficina">{workshop.description}</p>
 
                 <div className="alunosViewOficina">
@@ -70,7 +70,7 @@ function VerOficina() {
                     ) : error ? (
                         <p className="error">{error}</p>
                     ) : (
-                        alunos.map((student) => (<AlunosList key={student.id} student={student}/>))
+                        alunos.map((student) => (<AlunosList key={student.id} student={student} workshop={workshop}/>))
                     )}
                 </div>
             </div>

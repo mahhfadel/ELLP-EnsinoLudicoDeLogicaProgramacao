@@ -1,12 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import AlunoListCertificados from "../components/AlunoListCertificados";
 
 import "./styles/VerCertificado.css";
-//import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import axios from "axios";
 
 function VerOficina() {
+    const location = useLocation();
+    const workshop = location.state?.workshop;
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [alunos, setAlunos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const { token } = useAuth();
+
     useEffect(() => {
+        if (workshop?.id) {
+            axios
+                .get(`${process.env.REACT_APP_API_URL}workshop/${workshop.id}/students`, { headers: { Authorization: `Bearer ${token}`}})
+                .then((response) => {
+                    setAlunos(response.data);
+                    setLoading(false);
+                })
+                .catch((err) => {
+                    console.error("Erro ao buscar alunos:", err);
+                    setError("Erro ao carregar alunos.");
+                    setLoading(false);
+                });
+        }
+    }, [workshop?.id]);
+
+
+   useEffect(() => {
         document.body.style.overflow = "hidden";
 
         return () => {
@@ -14,26 +43,20 @@ function VerOficina() {
         };
     }, []);
 
+    if (!workshop) {
+        return <p>Oficina não encontrada!</p>;
+    }
+
     return (
         <div className="main">
             <NavBar oficina={false} certificado={true} alunos={false}></NavBar>
             <div className="contentPage">
                 <div className="topPage">
-                    <h1>Lorem Ipsum</h1>
+                    <h1>{workshop.name}</h1>
                 </div>
-                <p className="dateOficina">05/05/2025</p>
+                <p className="dateOficina">{new Date(workshop.date).toLocaleDateString('pt-BR')}</p>
                 <p className="descriptionOficina">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer et felis at ipsum blandit pharetra. Nunc euismod
-                    porta urna. Vivamus porta tellus quam, vitae dictum leo
-                    laoreet vitae. Duis eleifend suscipit accumsan. Maecenas
-                    lorem urna, sodales vitae aliquam at, convallis sed lorem.
-                    Phasellus erat lacus, auctor in felis sed, ullamcorper
-                    laoreet nibh. Maecenas lacinia dignissim nisi nec auctor.
-                    Vivamus eget sollicitudin arcu, quis blandit ligula. Aenean
-                    ut augue augue. Fusce augue nibh, pharetra id convallis a,
-                    finibus at elit. In vel erat est. Sed eu purus urna. Proin
-                    sodales eros ut ex bibendum.
+                    {workshop.description}
                 </p>
 
                 <div className="alunosViewCertificado">
@@ -46,9 +69,7 @@ function VerOficina() {
                     </div>
                     <div className="dividerAlunos"></div>
 
-                    <AlunoListCertificados></AlunoListCertificados>
-                    <AlunoListCertificados></AlunoListCertificados>
-                    <AlunoListCertificados></AlunoListCertificados>
+                    {alunos && alunos.map(aluno => <AlunoListCertificados key={aluno.id} workshop={workshop} student={aluno}/>)}
                 </div>
 
                 <button className="buttonGerarCertificados">

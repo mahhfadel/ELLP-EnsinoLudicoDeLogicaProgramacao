@@ -14,6 +14,11 @@
     gap: 12px;
 }
 
+.contentModalAdicionarAlunos.selected {
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
 .ModalAdicionarAlunosNome {
     width: 35%;
 }

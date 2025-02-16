@@ -8,13 +8,15 @@ import {
 import logo from "../assets/logo.png";
 import ellpinho from "../assets/ellpinho_v2.png";
 import SelectItemNavbar from "../components/SelectItenNavbar";
+import { useAuth } from '../context/AuthContext';
 
 import { Link } from "react-router-dom";
 
 import "./styles/NavBar.css";
 
 function NavBar({ oficina, certificado, alunos }) {
-    return (
+    const { logout } = useAuth();
+        return (
         <div className="navbarElement">
             <img className="logo" src={logo} />
             <div className="divider"></div>
@@ -43,7 +45,7 @@ function NavBar({ oficina, certificado, alunos }) {
                     ></SelectItemNavbar>
                 </Link>
 
-                <SelectItemNavbar
+                <SelectItemNavbar onClick={logout}
                     textElement="Sair"
                     icon={<MdOutlineLogout />}
                     select={false}

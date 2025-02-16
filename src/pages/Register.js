@@ -48,7 +48,7 @@ function Register() {
             name,
             phone,
             address,
-            birthdate: formattedBirthdate, // Data formatada
+            birthdate: formattedBirthdate,
             email,
             password
         });

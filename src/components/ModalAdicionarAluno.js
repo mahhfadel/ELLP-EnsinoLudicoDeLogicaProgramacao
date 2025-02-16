@@ -40,10 +40,12 @@ const Modal = ({ isOpen, onClose, onStudentCreated }) => {
             return;
         }
 
+        const formattedBirthdate = new Date(dataNascimento).toLocaleDateString('en-US');
+
         try {
             const response = await axios.post(
                 `${process.env.REACT_APP_API_URL}student`,
-                { name: nome, email: email, phone: telefone, birthdate: dataNascimento },
+                { name: nome, email: email, phone: telefone, birthdate: formattedBirthdate },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 

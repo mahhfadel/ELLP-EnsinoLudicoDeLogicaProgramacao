@@ -4,14 +4,13 @@ import "./styles/SelectItemNavbar.css";
 
 function SelectItemNavbar({ textElement, icon, select, onClick }) {
     const handleClick = () => {
-        console.log("Elemento foi clicado!");
+        onClick();
     };
     return (
         <div
             className="element"
             onClick={handleClick}
             style={{ backgroundColor: select ? "#f79335" : "transparent" }}
-            onClick={onClick}
         >
             {icon}
             {textElement}

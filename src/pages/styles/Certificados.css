@@ -32,7 +32,7 @@ body {
     font-size: 32px;
 }
 
-.topPage buttom {
+.topPage button {
     background-color: #026cb8;
     color: #fbfbfb;
     font-weight: 500;
@@ -40,6 +40,7 @@ body {
     border-radius: 12px;
     font-size: 20px;
     cursor: pointer;
+    border: 0;
 }
 
 .bottonPage {

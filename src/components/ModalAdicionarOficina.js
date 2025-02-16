@@ -9,6 +9,7 @@ const Modal = ({ isOpen, onClose, onWorkshopCreated }) => {
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
     const [loading, setLoading] = useState(false);
+    const [imageUri, setImageUri] = useState('');
     const [error, setError] = useState(null);
 
     if (!isOpen) return null;
@@ -21,7 +22,7 @@ const Modal = ({ isOpen, onClose, onWorkshopCreated }) => {
         try {
             const response = await axios.post(
                 `${process.env.REACT_APP_API_URL}workshop`,
-                { name, description, date },
+                { name, description, date, imageUri },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -69,6 +70,14 @@ const Modal = ({ isOpen, onClose, onWorkshopCreated }) => {
                         type="date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
+                        required
+                    />
+
+                    <label>Imagem</label>
+                    <input
+                        type="url"
+                        value={imageUri}
+                        onChange={(e) => setImageUri(e.target.value)}
                         required
                     />
 

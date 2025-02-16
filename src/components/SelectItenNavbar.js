@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles/SelectItemNavbar.css";
 
-function SelectItemNavbar({ textElement, icon, select }) {
+function SelectItemNavbar({ textElement, icon, select, onClick }) {
     const handleClick = () => {
         console.log("Elemento foi clicado!");
     };
@@ -11,6 +11,7 @@ function SelectItemNavbar({ textElement, icon, select }) {
             className="element"
             onClick={handleClick}
             style={{ backgroundColor: select ? "#f79335" : "transparent" }}
+            onClick={onClick}
         >
             {icon}
             {textElement}

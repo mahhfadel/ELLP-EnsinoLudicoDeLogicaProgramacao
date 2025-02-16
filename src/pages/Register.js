@@ -25,39 +25,42 @@ function Register() {
 
   const handleRegister = async () => {
     if (!name || !phone || !address || !birthdate || !email || !password || !confirmPassword) {
-      setErrorMessage('Todos os campos devem estar preenchidos.');
-      setError(true);
-      return;
+        setErrorMessage('Todos os campos devem estar preenchidos.');
+        setError(true);
+        return;
     }
 
     if (password !== confirmPassword) {
-      setErrorMessage('As senhas não coincidem.');
-      setError(true);
-      return;
+        setErrorMessage('As senhas não coincidem.');
+        setError(true);
+        return;
     }
 
     setError(false);
     setErrorMessage('');
 
+    // Formatando a data para MM/DD/YYYY
+    const formattedBirthdate = new Date(birthdate).toLocaleDateString('en-US');
+
     const url = `${process.env.REACT_APP_API_URL}register`;
     try {
-      const response = await axios.post(url, { 
-        name, 
-        phone, 
-        address, 
-        birthdate, 
-        email, 
-        password 
-      });
+        const response = await axios.post(url, {
+            name,
+            phone,
+            address,
+            birthdate: formattedBirthdate, // Data formatada
+            email,
+            password
+        });
 
-      login(response.data); // Salva o token no AuthContext
+        login(response.data); // Salva o token no AuthContext
 
-      navigate('/home');
+        navigate('/home');
     } catch (error) {
-      setErrorMessage(error.response?.data?.message || 'Erro ao registrar. Tente novamente.');
-      setError(true);
+        setErrorMessage(error.response?.data?.message || 'Erro ao registrar. Tente novamente.');
+        setError(true);
     }
-  };
+};
 
   return (
     <BaseAuthScreen>
